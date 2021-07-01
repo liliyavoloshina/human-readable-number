@@ -28,4 +28,22 @@ module.exports = function toReadable (number) {
       return `${units[stringed[0] - 1]} hundred`
     }
   }
+
+  if (stringed.length == 2) {
+    if (stringed[0] > 1 && stringed[1] > 0) {
+      return `${tens[stringed[0] - 2]} ${units[stringed[1] - 1]}`
+    }
+    if (stringed[0] > 1 && stringed[1] == 0) {
+      return `${tens[stringed[0] - 2]}`
+    }
+    if (stringed[0] == 1) {
+      let ten = stringed[0] + stringed[1]
+      for (key in anomalyTens) {
+        if (ten == key) {
+          ten = anomalyTens[key]
+        }
+      }
+      return `${ten}`
+    }
+  }
 }
