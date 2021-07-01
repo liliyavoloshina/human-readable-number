@@ -1,2 +1,2 @@
 const toReadable = require('./index.js')
-toReadable(123)
+toReadable(910)
